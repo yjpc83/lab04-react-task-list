@@ -21,5 +21,14 @@ const TaskList = (props) => {
   return element;
 };
 
+const Task = (prop) => {
+  const element = (
+    <li>{ prop.description }</li>
+  );
+  return element
+};
+
+
+
 // Export the TaskList component
 module.exports = TaskList;
