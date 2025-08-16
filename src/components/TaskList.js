@@ -6,16 +6,22 @@ const React = require('react');
 
 // Define the TaskList component
 const TaskList = (props) => {
-  // At the moment the TaskList component is just a hard-coded HTML unordered
-  // list. We will be changing this during the lab.
+  
+  // A mistake here cause everything to stop functioning
+  const taskComponentList = [];
+
+  // missing the let keyword broke the entire page!
+  for (let i=0; i<props.myTasks.length; i++) {
+    const currentTask = props.myTasks[i]
+    taskComponentList.push(
+      <Task id={currentTask.id} description={currentTask.description} completed={currentTask.completed} />
+    );
+  };
+  
   const element = (
     <div>
       <h1>{ props.heading }</h1>
-      <ul>
-        <li>Clean my bed</li>
-        <li>Finish my homework</li>
-        <li>Brush my teeth</li>
-      </ul>
+        {taskComponentList} 
     </div>
   );
   return element;
@@ -23,12 +29,12 @@ const TaskList = (props) => {
 
 const Task = (prop) => {
   const element = (
-    <li>{ prop.description }</li>
+    <li>
+      {prop.description} <input type="checkbox" checked={prop.completed} />
+    </li>
   );
-  return element
+  return element;
 };
-
-
 
 // Export the TaskList component
 module.exports = TaskList;

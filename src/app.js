@@ -5,7 +5,9 @@
 // web browser.
 
 const path = require('path');
-const express = require('express');
+const express = require('express');   
+// This way of writing importing packages is outdated now.
+// The preferred, modern way of importing in Node.js is "import"
 
 // Create a new Express app
 const app = express();
